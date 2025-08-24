@@ -1,0 +1,198 @@
+.home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    width: calc(100vw - 130px);
+    position: relative;
+}
+
+.intro {
+    max-width: 420px; /* Compact layout */
+    width: 100%; /* Ensures responsiveness */
+    z-index: 1;
+}
+
+.home__img {
+    width: 100px; /* Adjusted image size */
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.home__name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+.home__socials {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.home__social-link {
+    font-size: 1rem;
+    color: var(--title-color, #333333);
+    transition: 0.3s;
+}
+
+.home__social-link:hover {
+    color: #a4f21c;
+    transform: translateY(-2px);
+}
+
+.home__education {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--text-color, #333333);
+}
+
+.scroll__down {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-color, #333333);
+    width: max-content; /* Ensures it doesn’t stretch */
+}
+
+.home__scroll-name {
+    font-size: var(--small-font-size);
+}
+
+.mouse {
+    border: 2px solid #454360;
+    display: block;
+    height: 1.6rem;
+    width: 1.25rem;
+    margin: auto;
+    margin-top: .75rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+@keyframes ani-mouse {
+    0% {
+        top: 29%;
+    }
+    15% {
+        top: 50%;
+    }
+    50% {
+        top: 50%;
+    }
+    100% {
+        top: 29%;
+    }
+}
+
+.wheel {
+    background-color: var(--title-color);
+    border-radius: 100%;
+    width: 0.25rem;
+    height: 0.25rem;
+    position: absolute;
+    top: .5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: ani-mouse 2s linear infinite;
+}
+
+.shapes {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.shape {
+    position: absolute;
+}
+
+.background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.6;
+    animation: float 6s infinite ease-in-out alternate;
+}
+
+
+.shape:nth-child(1) { top: 10%; left: 15%; transform: rotate(20deg); stroke: #FF6B6B; }
+.shape:nth-child(2) { top: 40%; left: 80%; transform: rotate(-15deg); stroke: #FFD93D; }
+.shape:nth-child(3) { top: 70%; left: 50%; transform: rotate(30deg); stroke: #6BCB77; }
+.shape:nth-child(4) { top: 20%; left: 60%; transform: rotate(-25deg); stroke: #4D96FF; }
+.shape:nth-child(5) { top: 85%; left: 25%; transform: rotate(10deg); stroke: #845EC2; }
+.shape:nth-child(6) { top: 30%; left: 10%; transform: rotate(5deg); stroke: #E40066; }
+.shape:nth-child(7) { top: 50%; left: 90%; transform: rotate(-10deg); stroke: #29A19C; }
+.shape:nth-child(8) { top: 65%; left: 35%; transform: rotate(15deg); stroke: #FF6F61; }
+.shape:nth-child(9) { top: 75%; left: 70%; transform: rotate(-20deg); stroke: #008F7A; }
+.shape:nth-child(10) { top: 90%; left: 40%; transform: rotate(8deg); stroke: #A44CD5; }
+
+
+@keyframes float {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(10px) rotate(10deg); }
+}
+
+:root {
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --title-color: #111111;
+    --btn-background: #a4f21c;
+}
+
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #f5f5f5;
+    --title-color: #ffffff;
+    --btn-background: #66bb6a;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.home__name {
+    color: var(--title-color);
+}
+
+.btn {
+    background-color: var(--btn-background);
+    color: var(--background-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--btn-background);
+    color: var(--background-color);
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+

@@ -1,0 +1,78 @@
+/* ให้ Resume Container อยู่ตรงกลาง */
+.resume__container {
+    display: flex;
+    justify-content: center; /* จัดให้อยู่ตรงกลาง */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 900px; /* กำหนดความกว้างสูงสุด */
+    margin: 0 auto; /* จัดกึ่งกลาง */
+}
+
+/* กล่อง Timeline */
+.timeline {
+    background-color: var(--container-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); /* ลดเงาให้ดู Minimal */
+    width: 100%; /* ให้เต็ม container */
+    max-width: 420px; /* จำกัดความกว้าง */
+}
+
+/* รายการ Timeline */
+.timeline__item {
+    position: relative;
+    padding-left: 2rem;
+    padding-bottom: 1.5rem;
+    border-left: 3px solid var(--primary-color); /* ใช้เส้นแทนเส้นไทม์ไลน์ */
+    margin-left: 0.5rem;
+}
+
+/* ลบ Padding อันสุดท้าย */
+.timeline__item:last-child {
+    padding-bottom: 0;
+}
+
+/* Responsive: Mobile */
+@media screen and (max-width: 768px) {
+    .resume__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timeline {
+        max-width: 100%;
+    }
+}
+
+.timeline__item::before {
+    content: '';
+    width: 1px;
+    height: 100%;
+    background-color: var(--first-color);
+    position: absolute;
+    left: .25rem;
+    top: 0;
+}
+
+.timeline .icon-briefcase,
+.timeline .icon-graduation {
+    position: absolute;
+    left: -0.4375rem;
+    top: 0;
+    font-size:var(--h2-font-size);
+    color: var(--first-color);
+    background-color: var(--container-color);
+    padding: 0.4375rem 0;
+}
+
+.timeline__date {
+    color: #8b88b1;
+    font-size: var(--small-font-size);
+}
+
+.timeline__title {
+    font-size: var(--h3--font--size);
+    margin: 0.5rem 0;
+}
